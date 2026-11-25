@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" font-family="Segoe UI, Helvetica, Arial, sans-serif">
   <defs>
     <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
       <path d="M0 0L10 5L0 10z" fill="#134074"/>
     </marker>
   </defs>
-  <rect width="1200" height="360" rx="16" fill="#FFFFFF"/>
+  <rect width="1200" height="300" rx="16" fill="#FFFFFF"/>
   <text x="40" y="52" font-size="26" font-weight="700" fill="#0B2545">Request lifecycle</text>
   <text x="40" y="80" font-size="15" fill="#5B6B7F">Every API call passes the same checks before it reaches the database.</text>
 
@@ -73,6 +73,4 @@
       <text x="14" y="138" font-size="12" fill="#5B6B7F">cache</text>
     </g>
   </g>
-  <rect x="372" y="290" width="472" height="40" rx="8" fill="#FDF1F1" stroke="#E5A3A3"/>
-  <text x="608" y="315" text-anchor="middle" font-size="13" fill="#8A2C2C">Steps 3–5 reject with UNAUTHORIZED / FORBIDDEN / BAD_REQUEST before any query runs</text>
 </svg>
