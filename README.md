@@ -25,6 +25,11 @@ ArcticEye is a modern web rewrite of a Java Swing + Maven + MySQL desktop invent
 
 The whole stack is TypeScript. tRPC gives the frontend end-to-end type safety against the server, so a change to an API procedure is caught at compile time in the React code that calls it.
 
+## Report and demo video
+
+- [Project Report (PDF)](./Inventory_Management_System_Report_REVISED.pdf)
+- [Presentation Video (MP4)](./Presentation_video.mp4)
+
 ## Features
 
 | | |
@@ -178,7 +183,7 @@ All procedures are served under `/api/trpc`.
 │   └── db.ts          Data access and transactions
 ├── drizzle/           schema.ts and migrations 0000–0003
 ├── shared/            Constants and types shared by client and server
-├── docs/images/       README diagrams
+├── docs/              README diagrams (SVG)
 ├── Dockerfile
 ├── vite.config.ts
 └── drizzle.config.ts
@@ -208,3 +213,8 @@ A `Dockerfile` is included for container builds. In production, set `NODE_ENV=pr
 
 Migrated from the original Java Swing + Maven + MySQL Inventory Management project, keeping its schema and sample data.
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 34b900f (Update README documentation)
