@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <div align="center">
 
 ![ArcticEye — Inventory Management System](docs/banner.svg)
