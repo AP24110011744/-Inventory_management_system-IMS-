@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#134074"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="640" rx="16" fill="#FFFFFF"/>
+  <text x="40" y="52" font-size="26" font-weight="700" fill="#0B2545">System architecture</text>
+  <text x="40" y="80" font-size="15" fill="#5B6B7F">One Node.js process serves the tRPC API and the built React SPA. In development, Vite runs as Express middleware.</text>
+
+  <!-- Browser -->
+  <rect x="40" y="130" width="250" height="440" rx="14" fill="#EEF4ED" stroke="#8DA9C4" stroke-width="2"/>
+  <text x="165" y="165" text-anchor="middle" font-size="19" font-weight="700" fill="#0B2545">Browser</text>
+  <text x="165" y="188" text-anchor="middle" font-size="13" fill="#5B6B7F">React SPA · client/src</text>
+  <g font-size="14" fill="#0B2545">
+    <rect x="62" y="210" width="206" height="44" rx="8" fill="#FFFFFF" stroke="#C9D6E3"/><text x="165" y="237" text-anchor="middle">Wouter router + guards</text>
+    <rect x="62" y="266" width="206" height="44" rx="8" fill="#FFFFFF" stroke="#C9D6E3"/><text x="165" y="293" text-anchor="middle">Pages &amp; shadcn UI</text>
+    <rect x="62" y="322" width="206" height="44" rx="8" fill="#FFFFFF" stroke="#C9D6E3"/><text x="165" y="349" text-anchor="middle">TanStack Query cache</text>
+    <rect x="62" y="378" width="206" height="44" rx="8" fill="#FFFFFF" stroke="#C9D6E3"/><text x="165" y="405" text-anchor="middle">tRPC client (typed)</text>
+    <rect x="62" y="434" width="206" height="44" rx="8" fill="#FFFFFF" stroke="#C9D6E3"/><text x="165" y="461" text-anchor="middle">AuthProvider</text>
+  </g>
+  <text x="165" y="520" text-anchor="middle" font-size="12" fill="#5B6B7F">Tailwind · Radix · Charts</text>
+
+  <!-- Arrow browser <-> server -->
+  <line x1="296" y1="330" x2="404" y2="330" stroke="#134074" stroke-width="2.5" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text x="350" y="314" text-anchor="middle" font-size="13" font-weight="600" fill="#134074">HTTPS</text>
+  <text x="350" y="352" text-anchor="middle" font-size="12" fill="#5B6B7F">/api/trpc</text>
+  <text x="350" y="368" text-anchor="middle" font-size="12" fill="#5B6B7F">JSON + cookie</text>
+
+  <!-- Server -->
+  <rect x="410" y="130" width="500" height="440" rx="14" fill="#F4F7FB" stroke="#134074" stroke-width="2"/>
+  <text x="660" y="165" text-anchor="middle" font-size="19" font-weight="700" fill="#0B2545">Node.js server (Express)</text>
+  <text x="660" y="188" text-anchor="middle" font-size="13" fill="#5B6B7F">server/</text>
+
+  <g font-size="14">
+    <rect x="432" y="208" width="456" height="58" rx="9" fill="#0B2545"/>
+    <text x="452" y="232" font-weight="700" fill="#FFFFFF">Context · createContext()</text>
+    <text x="452" y="254" font-size="13" fill="#C9D6E3">Verify JWT cookie, load user, reject inactive accounts</text>
+
+    <rect x="432" y="278" width="456" height="58" rx="9" fill="#134074"/>
+    <text x="452" y="302" font-weight="700" fill="#FFFFFF">Procedure guards · _core/trpc.ts</text>
+    <text x="452" y="324" font-size="13" fill="#C9D6E3">public → protected → manager → admin  ·  Zod input validation</text>
+
+    <rect x="432" y="348" width="456" height="58" rx="9" fill="#13315C"/>
+    <text x="452" y="372" font-weight="700" fill="#FFFFFF">Routers · routers.ts</text>
+    <text x="452" y="394" font-size="13" fill="#C9D6E3">auth  ·  users  ·  inventory</text>
+
+    <rect x="432" y="418" width="456" height="58" rx="9" fill="#8DA9C4"/>
+    <text x="452" y="442" font-weight="700" fill="#0B2545">Data access · db.ts</text>
+    <text x="452" y="464" font-size="13" fill="#0B2545">Drizzle queries, business rules, transactions (POS sale)</text>
+  </g>
+  <rect x="432" y="490" width="220" height="62" rx="9" fill="#FFFFFF" stroke="#C9D6E3"/>
+  <text x="542" y="516" text-anchor="middle" font-size="14" font-weight="700" fill="#0B2545">auth.ts</text>
+  <text x="542" y="538" text-anchor="middle" font-size="12" fill="#5B6B7F">scrypt · JWT · rate limit</text>
+  <rect x="668" y="490" width="220" height="62" rx="9" fill="#FFFFFF" stroke="#C9D6E3"/>
+  <text x="778" y="516" text-anchor="middle" font-size="14" font-weight="700" fill="#0B2545">Static / Vite</text>
+  <text x="778" y="538" text-anchor="middle" font-size="12" fill="#5B6B7F">SPA in prod · HMR in dev</text>
+
+  <!-- Arrow server <-> db -->
+  <line x1="916" y1="447" x2="994" y2="447" stroke="#134074" stroke-width="2.5" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text x="955" y="432" text-anchor="middle" font-size="13" font-weight="600" fill="#134074">SQL</text>
+  <text x="955" y="470" text-anchor="middle" font-size="12" fill="#5B6B7F">Drizzle</text>
+
+  <!-- DB -->
+  <g transform="translate(1000 300)">
+    <path d="M0 24 Q0 0 80 0 Q160 0 160 24 V246 Q160 270 80 270 Q0 270 0 246 Z" fill="#EEF4ED" stroke="#8DA9C4" stroke-width="2"/>
+    <ellipse cx="80" cy="24" rx="80" ry="24" fill="#FFFFFF" stroke="#8DA9C4" stroke-width="2"/>
+    <text x="80" y="80" text-anchor="middle" font-size="19" font-weight="700" fill="#0B2545">MySQL</text>
+    <g font-size="13" fill="#0B2545" text-anchor="middle">
+      <text x="80" y="118">users</text>
+      <text x="80" y="146">categories</text>
+      <text x="80" y="174">products</text>
+      <text x="80" y="202">stock_movements</text>
+    </g>
+    <text x="80" y="238" text-anchor="middle" font-size="11" fill="#5B6B7F">migrations 0000–0003</text>
+  </g>
+  <line x1="1080" y1="222" x2="1080" y2="296" stroke="#8DA9C4" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="1080" y="160" text-anchor="middle" font-size="13" fill="#5B6B7F">DATABASE_URL</text>
+  <text x="1080" y="180" text-anchor="middle" font-size="13" fill="#5B6B7F">JWT_SECRET</text>
+  <text x="1080" y="210" text-anchor="middle" font-size="12" font-weight="600" fill="#134074">.env</text>
+</svg>

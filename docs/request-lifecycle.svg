@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#134074"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="360" rx="16" fill="#FFFFFF"/>
+  <text x="40" y="52" font-size="26" font-weight="700" fill="#0B2545">Request lifecycle</text>
+  <text x="40" y="80" font-size="15" fill="#5B6B7F">Every API call passes the same checks before it reaches the database.</text>
+
+  <g font-size="14">
+    <!-- step boxes: width 140, gap 26 -->
+    <g transform="translate(40 120)">
+      <rect width="140" height="150" rx="12" fill="#EEF4ED" stroke="#8DA9C4" stroke-width="2"/>
+      <circle cx="28" cy="30" r="16" fill="#0B2545"/><text x="28" y="35" text-anchor="middle" fill="#fff" font-weight="700">1</text>
+      <text x="14" y="78" font-weight="700" fill="#0B2545">useQuery()</text>
+      <text x="14" y="102" font-size="12" fill="#5B6B7F">Component calls</text>
+      <text x="14" y="120" font-size="12" fill="#5B6B7F">trpc.inventory</text>
+      <text x="14" y="138" font-size="12" fill="#5B6B7F">.products</text>
+    </g>
+    <line x1="182" y1="195" x2="204" y2="195" stroke="#134074" stroke-width="2.5" marker-end="url(#a)"/>
+    <g transform="translate(206 120)">
+      <rect width="140" height="150" rx="12" fill="#EEF4ED" stroke="#8DA9C4" stroke-width="2"/>
+      <circle cx="28" cy="30" r="16" fill="#0B2545"/><text x="28" y="35" text-anchor="middle" fill="#fff" font-weight="700">2</text>
+      <text x="14" y="78" font-weight="700" fill="#0B2545">HTTP request</text>
+      <text x="14" y="102" font-size="12" fill="#5B6B7F">GET/POST</text>
+      <text x="14" y="120" font-size="12" fill="#5B6B7F">/api/trpc/…</text>
+      <text x="14" y="138" font-size="12" fill="#5B6B7F">+ session cookie</text>
+    </g>
+    <line x1="348" y1="195" x2="370" y2="195" stroke="#134074" stroke-width="2.5" marker-end="url(#a)"/>
+    <g transform="translate(372 120)">
+      <rect width="140" height="150" rx="12" fill="#0B2545"/>
+      <circle cx="28" cy="30" r="16" fill="#8DA9C4"/><text x="28" y="35" text-anchor="middle" fill="#0B2545" font-weight="700">3</text>
+      <text x="14" y="78" font-weight="700" fill="#fff">Context</text>
+      <text x="14" y="102" font-size="12" fill="#C9D6E3">Verify JWT</text>
+      <text x="14" y="120" font-size="12" fill="#C9D6E3">Load user</text>
+      <text x="14" y="138" font-size="12" fill="#C9D6E3">Reject inactive</text>
+    </g>
+    <line x1="514" y1="195" x2="536" y2="195" stroke="#134074" stroke-width="2.5" marker-end="url(#a)"/>
+    <g transform="translate(538 120)">
+      <rect width="140" height="150" rx="12" fill="#134074"/>
+      <circle cx="28" cy="30" r="16" fill="#8DA9C4"/><text x="28" y="35" text-anchor="middle" fill="#0B2545" font-weight="700">4</text>
+      <text x="14" y="78" font-weight="700" fill="#fff">Role guard</text>
+      <text x="14" y="102" font-size="12" fill="#C9D6E3">protected /</text>
+      <text x="14" y="120" font-size="12" fill="#C9D6E3">manager /</text>
+      <text x="14" y="138" font-size="12" fill="#C9D6E3">admin</text>
+    </g>
+    <line x1="680" y1="195" x2="702" y2="195" stroke="#134074" stroke-width="2.5" marker-end="url(#a)"/>
+    <g transform="translate(704 120)">
+      <rect width="140" height="150" rx="12" fill="#13315C"/>
+      <circle cx="28" cy="30" r="16" fill="#8DA9C4"/><text x="28" y="35" text-anchor="middle" fill="#0B2545" font-weight="700">5</text>
+      <text x="14" y="78" font-weight="700" fill="#fff">Zod</text>
+      <text x="14" y="102" font-size="12" fill="#C9D6E3">Validate the</text>
+      <text x="14" y="120" font-size="12" fill="#C9D6E3">procedure</text>
+      <text x="14" y="138" font-size="12" fill="#C9D6E3">input</text>
+    </g>
+    <line x1="846" y1="195" x2="868" y2="195" stroke="#134074" stroke-width="2.5" marker-end="url(#a)"/>
+    <g transform="translate(870 120)">
+      <rect width="140" height="150" rx="12" fill="#8DA9C4"/>
+      <circle cx="28" cy="30" r="16" fill="#0B2545"/><text x="28" y="35" text-anchor="middle" fill="#fff" font-weight="700">6</text>
+      <text x="14" y="78" font-weight="700" fill="#0B2545">db.ts</text>
+      <text x="14" y="102" font-size="12" fill="#0B2545">Drizzle query</text>
+      <text x="14" y="120" font-size="12" fill="#0B2545">or transaction</text>
+      <text x="14" y="138" font-size="12" fill="#0B2545">on MySQL</text>
+    </g>
+    <line x1="1012" y1="195" x2="1034" y2="195" stroke="#134074" stroke-width="2.5" marker-end="url(#a)"/>
+    <g transform="translate(1036 120)">
+      <rect width="124" height="150" rx="12" fill="#EEF4ED" stroke="#8DA9C4" stroke-width="2"/>
+      <circle cx="28" cy="30" r="16" fill="#0B2545"/><text x="28" y="35" text-anchor="middle" fill="#fff" font-weight="700">7</text>
+      <text x="14" y="78" font-weight="700" fill="#0B2545">Response</text>
+      <text x="14" y="102" font-size="12" fill="#5B6B7F">superjson</text>
+      <text x="14" y="120" font-size="12" fill="#5B6B7F">→ React Query</text>
+      <text x="14" y="138" font-size="12" fill="#5B6B7F">cache</text>
+    </g>
+  </g>
+  <rect x="372" y="290" width="472" height="40" rx="8" fill="#FDF1F1" stroke="#E5A3A3"/>
+  <text x="608" y="315" text-anchor="middle" font-size="13" fill="#8A2C2C">Steps 3–5 reject with UNAUTHORIZED / FORBIDDEN / BAD_REQUEST before any query runs</text>
+</svg>

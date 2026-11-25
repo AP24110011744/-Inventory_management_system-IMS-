@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B2545"/>
+      <stop offset="1" stop-color="#134074"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#8DA9C4" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#8DA9C4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="320" rx="18" fill="url(#bg)"/>
+  <!-- subtle grid -->
+  <g stroke="#ffffff" stroke-opacity="0.05">
+    <path d="M0 64H1280M0 128H1280M0 192H1280M0 256H1280"/>
+    <path d="M160 0V320M320 0V320M480 0V320M640 0V320M800 0V320M960 0V320M1120 0V320"/>
+  </g>
+  <circle cx="200" cy="160" r="120" fill="url(#glow)"/>
+  <!-- eye mark -->
+  <g fill="none" stroke="#EEF4ED" stroke-width="6" stroke-linejoin="round">
+    <path d="M110 160 Q200 80 290 160 Q200 240 110 160 Z"/>
+  </g>
+  <circle cx="200" cy="160" r="32" fill="#8DA9C4"/>
+  <circle cx="200" cy="160" r="14" fill="#0B2545"/>
+  <circle cx="210" cy="150" r="5" fill="#EEF4ED"/>
+  <!-- snowflake accent -->
+  <g stroke="#8DA9C4" stroke-width="3" stroke-linecap="round" transform="translate(268 92)">
+    <path d="M0 -12V12M-10.4 -6L10.4 6M-10.4 6L10.4 -6"/>
+  </g>
+  <!-- text -->
+  <text x="340" y="148" fill="#FFFFFF" font-size="68" font-weight="700" letter-spacing="1">ArcticEye</text>
+  <text x="342" y="192" fill="#8DA9C4" font-size="27" font-weight="600">Inventory Management System</text>
+  <text x="342" y="228" fill="#EEF4ED" font-size="18" opacity="0.9">Stock control · Point of sale · Audit trail · Role-based access</text>
+  <!-- tech pills -->
+  <g font-size="14" font-weight="600" fill="#0B2545">
+    <rect x="342" y="252" width="80" height="30" rx="15" fill="#EEF4ED"/><text x="382" y="272" text-anchor="middle">React</text>
+    <rect x="432" y="252" width="70" height="30" rx="15" fill="#EEF4ED"/><text x="467" y="272" text-anchor="middle">tRPC</text>
+    <rect x="512" y="252" width="90" height="30" rx="15" fill="#EEF4ED"/><text x="557" y="272" text-anchor="middle">Express</text>
+    <rect x="612" y="252" width="86" height="30" rx="15" fill="#EEF4ED"/><text x="655" y="272" text-anchor="middle">Drizzle</text>
+    <rect x="708" y="252" width="80" height="30" rx="15" fill="#EEF4ED"/><text x="748" y="272" text-anchor="middle">MySQL</text>
+    <rect x="798" y="252" width="110" height="30" rx="15" fill="#EEF4ED"/><text x="853" y="272" text-anchor="middle">TypeScript</text>
+  </g>
+</svg>

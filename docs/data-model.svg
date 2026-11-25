@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1200" height="500" rx="16" fill="#FFFFFF"/>
+  <text x="40" y="52" font-size="26" font-weight="700" fill="#0B2545">Data model</text>
+  <text x="40" y="80" font-size="15" fill="#5B6B7F">Four tables. Every stock change is recorded in stock_movements, and the audit trail survives user deletion.</text>
+
+  <!-- table helper: header 40, rows 26 -->
+  <!-- categories -->
+  <g transform="translate(40 130)">
+    <rect width="220" height="134" rx="10" fill="#FFFFFF" stroke="#134074" stroke-width="2"/>
+    <path d="M0 10 Q0 0 10 0 H210 Q220 0 220 10 V40 H0 Z" fill="#134074"/>
+    <text x="16" y="27" font-size="16" font-weight="700" fill="#fff">categories</text>
+    <g font-size="13" fill="#0B2545">
+      <text x="16" y="66">id</text><text x="204" y="66" text-anchor="end" fill="#5B6B7F">PK</text>
+      <text x="16" y="94">name</text><text x="204" y="94" text-anchor="end" fill="#5B6B7F">UNIQUE</text>
+      <text x="16" y="122" fill="#5B6B7F">timestamps</text>
+    </g>
+  </g>
+  <!-- products -->
+  <g transform="translate(340 130)">
+    <rect width="250" height="264" rx="10" fill="#FFFFFF" stroke="#134074" stroke-width="2"/>
+    <path d="M0 10 Q0 0 10 0 H240 Q250 0 250 10 V40 H0 Z" fill="#134074"/>
+    <text x="16" y="27" font-size="16" font-weight="700" fill="#fff">products</text>
+    <g font-size="13" fill="#0B2545">
+      <text x="16" y="66">id</text><text x="234" y="66" text-anchor="end" fill="#5B6B7F">PK</text>
+      <text x="16" y="94">sku</text><text x="234" y="94" text-anchor="end" fill="#5B6B7F">UNIQUE</text>
+      <text x="16" y="122">name</text>
+      <text x="16" y="150">categoryId</text><text x="234" y="150" text-anchor="end" fill="#5B6B7F">FK</text>
+      <text x="16" y="178">supplier</text>
+      <text x="16" y="206">quantity</text>
+      <text x="16" y="234">reorderLevel</text>
+      <text x="16" y="258">unitPrice</text><text x="234" y="258" text-anchor="end" fill="#5B6B7F">₹</text>
+    </g>
+  </g>
+  <!-- stock_movements -->
+  <g transform="translate(670 130)">
+    <rect width="250" height="208" rx="10" fill="#FFFFFF" stroke="#134074" stroke-width="2"/>
+    <path d="M0 10 Q0 0 10 0 H240 Q250 0 250 10 V40 H0 Z" fill="#134074"/>
+    <text x="16" y="27" font-size="16" font-weight="700" fill="#fff">stock_movements</text>
+    <g font-size="13" fill="#0B2545">
+      <text x="16" y="66">id</text><text x="234" y="66" text-anchor="end" fill="#5B6B7F">PK</text>
+      <text x="16" y="94">productId</text><text x="234" y="94" text-anchor="end" fill="#5B6B7F">FK</text>
+      <text x="16" y="122">movementType</text><text x="234" y="122" text-anchor="end" fill="#5B6B7F">IN/OUT/ADJ</text>
+      <text x="16" y="150">quantity</text>
+      <text x="16" y="178">note</text>
+      <text x="16" y="202">userId</text><text x="234" y="202" text-anchor="end" fill="#5B6B7F">FK · nullable</text>
+    </g>
+  </g>
+  <!-- users -->
+  <g transform="translate(990 130)">
+    <rect width="180" height="180" rx="10" fill="#FFFFFF" stroke="#134074" stroke-width="2"/>
+    <path d="M0 10 Q0 0 10 0 H170 Q180 0 180 10 V40 H0 Z" fill="#134074"/>
+    <text x="16" y="27" font-size="16" font-weight="700" fill="#fff">users</text>
+    <g font-size="13" fill="#0B2545">
+      <text x="16" y="66">id</text>
+      <text x="16" y="94">email</text><text x="164" y="94" text-anchor="end" fill="#5B6B7F">UNIQUE</text>
+      <text x="16" y="122">passwordHash</text>
+      <text x="16" y="150">role</text>
+      <text x="16" y="174">isActive</text>
+    </g>
+  </g>
+  <!-- relationships -->
+  <g stroke="#8DA9C4" stroke-width="2.5" fill="none">
+    <path d="M260 196 H340"/>
+    <path d="M590 224 H670"/>
+    <path d="M920 332 H955 V250 H990"/>
+  </g>
+  <g font-size="14" font-weight="700" fill="#134074">
+    <text x="268" y="186">1</text><text x="324" y="186">*</text>
+    <text x="598" y="214">1</text><text x="654" y="214">*</text>
+    <text x="926" y="322">*</text><text x="964" y="240">0..1</text>
+  </g>
+
+  <!-- rules -->
+  <g transform="translate(40 420)" font-size="13">
+    <rect width="360" height="56" rx="8" fill="#EEF4ED"/>
+    <text x="14" y="23" font-weight="700" fill="#0B2545">POS sale = one transaction</text>
+    <text x="14" y="43" fill="#5B6B7F">Check stock → decrement → write OUT movement</text>
+    <rect x="380" width="360" height="56" rx="8" fill="#EEF4ED"/>
+    <text x="394" y="23" font-weight="700" fill="#0B2545">Category delete is guarded</text>
+    <text x="394" y="43" fill="#5B6B7F">Blocked while any product references it</text>
+    <rect x="760" width="370" height="56" rx="8" fill="#EEF4ED"/>
+    <text x="774" y="23" font-weight="700" fill="#0B2545">Audit trail survives</text>
+    <text x="774" y="43" fill="#5B6B7F">Deleting a user sets stock_movements.userId to NULL</text>
+  </g>
+</svg>

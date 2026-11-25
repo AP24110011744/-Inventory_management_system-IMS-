@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1200" height="400" rx="16" fill="#FFFFFF"/>
+  <text x="40" y="52" font-size="26" font-weight="700" fill="#0B2545">Roles and permissions</text>
+  <text x="40" y="80" font-size="15" fill="#5B6B7F">Each role inherits everything from the role below it. Checks run on the server; the UI only hides actions.</text>
+
+  <!-- Staff -->
+  <g transform="translate(40 120)">
+    <rect width="350" height="240" rx="14" fill="#EEF4ED" stroke="#8DA9C4" stroke-width="2"/>
+    <text x="24" y="42" font-size="21" font-weight="700" fill="#0B2545">Staff</text>
+    <text x="24" y="66" font-size="13" fill="#5B6B7F" font-family="Consolas, monospace">protectedProcedure</text>
+    <g font-size="15" fill="#0B2545">
+      <text x="24" y="110">✓  View dashboard &amp; inventory</text>
+      <text x="24" y="140">✓  Make POS sales</text>
+      <text x="24" y="170">✓  View movement history</text>
+      <text x="24" y="200">✓  Edit own profile &amp; password</text>
+    </g>
+  </g>
+  <text x="415" y="248" font-size="34" font-weight="700" fill="#8DA9C4">›</text>
+  <!-- Manager -->
+  <g transform="translate(440 120)">
+    <rect width="350" height="240" rx="14" fill="#134074"/>
+    <text x="24" y="42" font-size="21" font-weight="700" fill="#fff">Manager</text>
+    <text x="24" y="66" font-size="13" fill="#C9D6E3" font-family="Consolas, monospace">managerProcedure</text>
+    <g font-size="15" fill="#fff">
+      <text x="24" y="110">＋  Everything Staff can do</text>
+      <text x="24" y="140">✓  Create / edit / delete products</text>
+      <text x="24" y="170">✓  Manage categories</text>
+      <text x="24" y="200">✓  Record stock in / out / adjust</text>
+    </g>
+  </g>
+  <text x="815" y="248" font-size="34" font-weight="700" fill="#8DA9C4">›</text>
+  <!-- Admin -->
+  <g transform="translate(840 120)">
+    <rect width="320" height="240" rx="14" fill="#0B2545"/>
+    <text x="24" y="42" font-size="21" font-weight="700" fill="#fff">Admin</text>
+    <text x="24" y="66" font-size="13" fill="#C9D6E3" font-family="Consolas, monospace">adminProcedure</text>
+    <g font-size="15" fill="#fff">
+      <text x="24" y="110">＋  Everything Manager can do</text>
+      <text x="24" y="140">✓  Users page</text>
+      <text x="24" y="170">✓  Change roles</text>
+      <text x="24" y="200">✓  Deactivate accounts</text>
+    </g>
+    <text x="24" y="228" font-size="12" fill="#8DA9C4">First registered account becomes Admin</text>
+  </g>
+</svg>
