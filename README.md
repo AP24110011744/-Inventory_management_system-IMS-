@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
 
 ![ArcticEye — Inventory Management System](docs/banner.svg)
@@ -206,3 +207,6 @@ A `Dockerfile` is included for container builds. In production, set `NODE_ENV=pr
 ## Acknowledgements
 
 Migrated from the original Java Swing + Maven + MySQL Inventory Management project, keeping its schema and sample data.
+=======
+# -Inventory_management_system-IMS-
+>>>>>>> 4009278457853b0c9b8ec9e42b841979b17acbac
