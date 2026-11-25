@@ -213,8 +213,4 @@ A `Dockerfile` is included for container builds. In production, set `NODE_ENV=pr
 
 Migrated from the original Java Swing + Maven + MySQL Inventory Management project, keeping its schema and sample data.
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 34b900f (Update README documentation)
